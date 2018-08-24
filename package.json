@@ -1,0 +1,29 @@
+{
+  "name": "pixi-fps",
+  "version": "0.1.0",
+  "description": "FPS counter for pixi.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkanchelov/pixi-fps.git"
+  },
+  "keywords": [
+    "fps",
+    "counter",
+    "pixi.js"
+  ],
+  "author": "jkanchelov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jkanchelov/pixi-fps/issues"
+  },
+  "homepage": "https://github.com/jkanchelov/pixi-fps#readme",
+  "devDependencies": {
+    "@types/pixi.js": "^4.8.0"
+  }
+}
