@@ -4,6 +4,6 @@ export declare class PixiFps extends PIXI.Container {
     private fpsTicker;
     private timeValues;
     private lastTime;
-    constructor(fontSize?: number, textColor?: number);
-    private measureFPS();
+    constructor(style: PIXI.TextStyle);
+    private measureFPS;
 }

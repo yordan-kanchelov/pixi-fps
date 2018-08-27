@@ -1,8 +1,11 @@
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -12,13 +15,21 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var PixiFps = /** @class */ (function (_super) {
     __extends(PixiFps, _super);
-    function PixiFps(fontSize, textColor) {
-        if (fontSize === void 0) { fontSize = 30; }
-        if (textColor === void 0) { textColor = 0xff0000; }
+    function PixiFps(style) {
         var _this = _super.call(this) || this;
+        var textStyle = new PIXI.TextStyle({
+            fontSize: 30
+        });
+        if (style) {
+            for (var key in style) {
+                if (style.hasOwnProperty(key)) {
+                    textStyle[key] = style[key];
+                }
+            }
+        }
         _this.timeValues = [];
         _this.lastTime = new Date().getTime();
-        _this.fpsTextField = new PIXI.Text("", { fontSize: fontSize, fontStyle: "Arial", fill: textColor });
+        _this.fpsTextField = new PIXI.Text("", textStyle);
         _this.fpsTicker = new PIXI.ticker.Ticker();
         _this.fpsTicker.add(_this.measureFPS.bind(_this));
         _this.fpsTicker.start();
