@@ -5,7 +5,7 @@ export class PixiFps extends PIXI.Container {
     private timeValues: number[];
     private lastTime: number;
 
-    constructor(style: PIXI.TextStyle) {
+    constructor(style?: PIXI.TextStyle) {
         super();
 
         const textStyle = new PIXI.TextStyle({
