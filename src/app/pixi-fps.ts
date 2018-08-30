@@ -8,20 +8,14 @@ export class PixiFps extends PIXI.Container {
     constructor(style?: PIXI.TextStyle) {
         super();
 
-        const textStyle = new PIXI.TextStyle({
-            fontSize: 30
+        const defaultStyle = new PIXI.TextStyle({
+            fontSize: 30,
+            fill: 0xff0000,
         });
 
-        if (style) {
-            for (const key in style) {
-                if (style.hasOwnProperty(key)) {
-                    (textStyle as any)[key] = (style as any)[key];
-                }
-            }
-        }
         this.timeValues = [];
         this.lastTime = new Date().getTime();
-        this.fpsTextField = new PIXI.Text("", textStyle);
+        this.fpsTextField = new PIXI.Text("", { ...defaultStyle, ...style } as PIXI.TextStyle);
 
         this.fpsTicker = new PIXI.ticker.Ticker();
         this.fpsTicker.add(this.measureFPS.bind(this));
