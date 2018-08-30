@@ -1,6 +1,6 @@
 {
     "name": "pixi-fps",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "description": "FPS counter for pixi.js",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
