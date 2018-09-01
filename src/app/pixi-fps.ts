@@ -1,44 +1,49 @@
 export class PixiFps extends PIXI.Container {
-    private fpsTextField: PIXI.Text;
-    private fpsTicker: PIXI.ticker.Ticker;
+    private static readonly DEFAULT_FONT_SIZE: number = 30;
+    private static readonly DEFAULT_FONT_COLOR: number = 0xff0000;
 
-    private timeValues: number[];
-    private lastTime: number;
+    private _fpsTextField: PIXI.Text;
+    private _fpsTicker: PIXI.ticker.Ticker;
+
+    private _timeValues: number[];
+    private _lastTime: number;
 
     constructor(style?: PIXI.TextStyle) {
         super();
 
         const defaultStyle = new PIXI.TextStyle({
-            fontSize: 30,
-            fill: 0xff0000,
+            fontSize: PixiFps.DEFAULT_FONT_SIZE,
+            fill: PixiFps.DEFAULT_FONT_COLOR,
         });
 
-        this.timeValues = [];
-        this.lastTime = new Date().getTime();
-        this.fpsTextField = new PIXI.Text("", { ...defaultStyle, ...style } as PIXI.TextStyle);
+        this._timeValues = [];
+        this._lastTime = new Date().getTime();
+        this._fpsTextField = new PIXI.Text("", { ...defaultStyle, ...style } as PIXI.TextStyle);
 
-        this.fpsTicker = new PIXI.ticker.Ticker();
-        this.fpsTicker.add(this.measureFPS.bind(this));
-        this.fpsTicker.start();
+        this._fpsTicker = new PIXI.ticker.Ticker();
+        this._fpsTicker.add(() => {
+            this.measureFPS();
+        });
+        this._fpsTicker.start();
 
-        this.addChild(this.fpsTextField);
+        this.addChild(this._fpsTextField);
     }
 
     private measureFPS(): void {
         const currentTime = new Date().getTime();
-        this.timeValues.push(1000 / (currentTime - this.lastTime));
+        this._timeValues.push(1000 / (currentTime - this._lastTime));
 
-        if (this.timeValues.length === 30) {
+        if (this._timeValues.length === 30) {
             let total = 0;
             for (let i = 0; i < 30; i++) {
-                total += this.timeValues[i];
+                total += this._timeValues[i];
             }
 
-            this.fpsTextField.text = (total / 30).toFixed(2);
+            this._fpsTextField.text = (total / 30).toFixed(2);
 
-            this.timeValues.length = 0;
+            this._timeValues.length = 0;
         }
 
-        this.lastTime = currentTime;
+        this._lastTime = currentTime;
     }
 }
