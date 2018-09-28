@@ -29,6 +29,10 @@ export class PixiFps extends PIXI.Container {
         this.addChild(this._fpsTextField);
     }
 
+    set style(style: PIXI.TextStyle) {
+        this._fpsTextField.style = style;
+    }
+
     private measureFPS(): void {
         const currentTime = new Date().getTime();
         this._timeValues.push(1000 / (currentTime - this._lastTime));
