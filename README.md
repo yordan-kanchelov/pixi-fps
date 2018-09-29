@@ -1,6 +1,7 @@
 # Pixi-fps
 
 Easy to use fps counter for pixi.js
+
 Works with pixi v4 or higher
 ![alt text](./img/example.png)
 
