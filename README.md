@@ -3,7 +3,8 @@
 Easy to use fps counter for pixi.js
 
 Works with pixi v4 or higher
-![alt text](./img/example.png)
+
+![](./img/example.png =)
 
 ## Table of Contents
 
@@ -32,8 +33,8 @@ stage.addChild(fpsCounter);
 
 ## Support
 
-Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
+Please [open an issue](https://github.com/jkanchelov/pixi-fps/issues/new) for support.
 
 ## Contributing
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/fraction/readme-boilerplate/compare/).
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/jkanchelov/pixi-fps/compare/).
