@@ -20,7 +20,7 @@ export class PixiFps extends PIXI.Container {
 
         this._timeValues = [];
         this._lastTime = new Date().getTime();
-        this._fpsTextField = new PIXI.Text('', { ...defaultStyle, ...style } as PIXI.TextStyle);
+        this._fpsTextField = new PIXI.Text("", { ...defaultStyle, ...style } as PIXI.TextStyle);
 
         this._fpsTicker = new PIXI.Ticker();
         this._fpsTicker.add(() => {
