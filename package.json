@@ -36,5 +36,8 @@
         "@babel/preset-env": "^7.0.0",
         "@babel/preset-typescript": "^7.0.0",
         "typescript": "^3.0.3"
+    },
+    "peerDependencies" : {
+        "pixi.js": "^5.0.0-rc"
     }
 }
