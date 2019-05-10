@@ -1,6 +1,6 @@
 {
     "name": "pixi-fps",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "FPS counter for pixi.js",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -25,7 +25,8 @@
         "build": "npm run build:types && npm run build:js",
         "build:types": "tsc --emitDeclarationOnly",
         "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
-        "build:watch": "npm run build && babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --watch"
+        "build:watch": "npm run build && babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --watch",
+        "prepublish": "npm run build"
     },
     "devDependencies": {
         "pixi.js": "^5.0.0-rc",
