@@ -1,9 +1,11 @@
+import * as PIXI from 'pixi.js';
+
 export class PixiFps extends PIXI.Container {
     private static readonly DEFAULT_FONT_SIZE: number = 30;
     private static readonly DEFAULT_FONT_COLOR: number = 0xff0000;
 
     private _fpsTextField: PIXI.Text;
-    private _fpsTicker: PIXI.ticker.Ticker;
+    private _fpsTicker: PIXI.Ticker;
 
     private _timeValues: number[];
     private _lastTime: number;
@@ -20,7 +22,7 @@ export class PixiFps extends PIXI.Container {
         this._lastTime = new Date().getTime();
         this._fpsTextField = new PIXI.Text("", { ...defaultStyle, ...style } as PIXI.TextStyle);
 
-        this._fpsTicker = new PIXI.ticker.Ticker();
+        this._fpsTicker = new PIXI.Ticker();
         this._fpsTicker.add(() => {
             this.measureFPS();
         });
