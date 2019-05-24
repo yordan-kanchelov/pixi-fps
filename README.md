@@ -2,7 +2,8 @@
 
 Easy to use fps counter for pixi.js
 
-Works with pixi v4 or higher
+Works with pixi v5.0.0 or higher
+For compability with pixi v4.0.0 or higher go with pixi-fps@1.1.3 or higher 
 
 ![](./img/example.png)
 
